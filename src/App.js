@@ -35,6 +35,17 @@ function App() {
   return (
     <ThemeContext.Provider value={theme ? "dark" : "light"}>
       <MyComponent />
+
+      <div className="user-card">
+        {user.map((data) => {
+          return (
+            <React.Fragment key={data.id}>
+              <h1>{data.name}</h1>
+              <p> {data.age}</p>
+            </React.Fragment>
+          );
+        })}
+      </div>
       {/* <FilterableProductTable /> */}
       {/* <Link to="/counter">Counter</Link> <br />
       <Link to="/movie">Movie</Link>
@@ -47,16 +58,7 @@ function App() {
         {theme ? "Light" : "Dark"}
       </button>
       <Counter title={10} />
-      <div className="user-card">
-        {user.map((data) => {
-          return (
-            <React.Fragment key={data.id}>
-              <h1>{data.name}</h1>
-              <p> {data.age}</p>
-            </React.Fragment>
-          );
-        })}
-      </div>
+     
       <React.Fragment>
         <h1>Testing fragment</h1>
         <p> What does fragment do?</p>
